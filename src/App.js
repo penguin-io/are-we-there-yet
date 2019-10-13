@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,34 +10,36 @@ import 'bootstrap';
 import 'popper.js';
 import 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './logo.svg';
 import './App.css';
+import Home from './views/pages/Home';
+import About from './views/pages/About';
+import Custom from './views/pages/Custom';
+import Contact from './views/pages/Contact';
+import FirstTimer from './views/layout/FirstTimer';
 
-class App extends Component{
+class App extends React.Component{
   constructor(){
-    super()
+    super();
     this.state = {
-      editMode : false
+        firsttime : true,
+        pages: [
+          'portofolio',
+          'news'
+        ]
     }
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <Route path="/" exact component={()=> <Home firstTime={this.state.firsttime} /> } />
+        <Route path="/home" component={()=> <Home firstTime={this.state.firsttime} /> } />
+        <Route path="/about-us" component={()=> <About firstTime={this.state.firsttime} /> } />
+        { this.state.pages.map((page)=>{
+          return <Route path={'/' + page} component={()=> <Custom firstTime={this.state.firsttime} pageName={page} /> } />
+        } ) }
+        <Route path="/contact-us" component={()=> <Contact firstTime={this.state.firsttime} /> } />
+        <Route path="/first-time" component={()=> <FirstTimer firstTime={this.state.firsttime} /> } />
+      </Router>
     );
   }
 }
