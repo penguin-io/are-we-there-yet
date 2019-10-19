@@ -21,7 +21,7 @@ class App extends React.Component{
   constructor(){
     super();
     this.state = {
-        firsttime : true,
+        firsttime : false,
         pages: [
           'portofolio',
           'news'
@@ -30,16 +30,18 @@ class App extends React.Component{
   }
   render() {
     return (
-      <Router>
-        <Route path="/" exact component={()=> <Home firstTime={this.state.firsttime} /> } />
-        <Route path="/home" component={()=> <Home firstTime={this.state.firsttime} /> } />
-        <Route path="/about-us" component={()=> <About firstTime={this.state.firsttime} /> } />
-        { this.state.pages.map((page)=>{
-          return <Route path={'/' + page} component={()=> <Custom firstTime={this.state.firsttime} pageName={page} /> } />
-        } ) }
-        <Route path="/contact-us" component={()=> <Contact firstTime={this.state.firsttime} /> } />
-        <Route path="/first-time" component={()=> <FirstTimer firstTime={this.state.firsttime} /> } />
-      </Router>
+      <div>
+        <Router>
+          <Route path="/" exact component={()=> <Home firstTime={this.state.firsttime} /> } />
+          <Route path="/home" component={()=> <Home firstTime={this.state.firsttime} /> } />
+          <Route path="/about-us" component={()=> <About firstTime={this.state.firsttime} /> } />
+          { this.state.pages.map((page)=>{
+            return <Route path={'/' + page} component={()=> <Custom firstTime={this.state.firsttime} pageName={page} /> } />
+          } ) }
+          <Route path="/contact-us" component={()=> <Contact firstTime={this.state.firsttime} /> } />
+          <Route path="/first-time" component={()=> <FirstTimer firstTime={this.state.firsttime} /> } />
+        </Router>
+      </div>
     );
   }
 }
