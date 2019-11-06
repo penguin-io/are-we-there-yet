@@ -1,5 +1,7 @@
 import React from 'react';
 import Layout from '../layout/Layout';
+import Backend from '../backend/Backend';
+
 import {
     BrowserRouter as Router,
     Route,
@@ -17,7 +19,10 @@ class Home extends React.Component{
         }
         else{
             return (
-                <div>asadas</div>
+                <div>
+                    <Backend />
+                    <Layout />
+                </div>
             );
         }
     }
