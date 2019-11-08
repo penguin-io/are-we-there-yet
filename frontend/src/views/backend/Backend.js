@@ -22,28 +22,23 @@ class Backend extends React.Component {
   }
   render() {
     return (
-        <div
-          id="mySidebar"
-          class="sidebar"
-          style={{ width: this.state.showBackend ? "250px" : "30px" }}
-        >
-          <div className="row">
-            <div className="col-md-10">
-              <a class="closebtn" onClick={this.toggleNav}>
-                &times;
-              </a>
-              <a href="#">About</a>
-              <a href="#">Services</a>
-              <a href="#">Clients</a>
-              <a href="#">Contact</a>
-            </div>
-            <div className="col-md-2">
-              <button class="openbtn" onClick={this.toggleNav}>
-                &#9776; Toggle Sidebar
-              </button>
-            </div>
-          </div>
+      <div class="card" id="editor">
+      <div class="card-header" onClick={this.toggleNav}>
+      </div>
+      <div class="card-body" style={{display : this.state.showBackend ? 'unset' : 'none'}}>
+        <h5 class="card-title">Navbar</h5>
+        <div class="card-text">
+          Background Color :
+          <select onChange={ (e) => this.handleChange(e) }>
+            <option value="white">White</option>
+            <option value="yellow">Yellow</option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+          </select>
         </div>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
     );
   }
 }

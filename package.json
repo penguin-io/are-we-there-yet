@@ -1,0 +1,22 @@
+{
+  "name": "are-we-there-yet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd frontend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/penguin-io/are-we-there-yet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/penguin-io/are-we-there-yet/issues"
+  },
+  "homepage": "https://github.com/penguin-io/are-we-there-yet#readme",
+  "dependencies": {
+    "concurrently": "^5.0.0"
+  }
+}
