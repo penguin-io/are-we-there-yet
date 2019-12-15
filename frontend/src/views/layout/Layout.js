@@ -1,39 +1,51 @@
 import React from "react";
 import {
-	BrowserRouter as Router,
-	Route,
-	Link,
-	Redirect,
-	withRouter
-  } from "react-router-dom";
-  
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Redirect,
+    withRouter
+  } from 'react-router-dom';
+
 class Layout extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      folderName: "./templates/snapshot"
-    };
-  }
   render() {
+	var items = this.props.pages.map((item,key) => 
+		<Link key={key} class="p-2 text-muted" to={'/' + item.slug}>{item.name}</Link>
+	)
     return (
-      <div>
-		  <nav class="site-header sticky-top py-1">
-			<div class="container d-flex flex-column flex-md-row justify-content-between">
-				<a class="py-2" href="#">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto" focusable="false" role="img"><title>Product</title><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
-				</a>
-				<a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
-				<a class="py-2 d-none d-md-inline-block" href="#">Product</a>
-				<a class="py-2 d-none d-md-inline-block" href="#">Features</a>
-				<a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
-				<a class="py-2 d-none d-md-inline-block" href="#">Support</a>
-				<a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
-				<a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+		<div>
+			<header className="blog-header py-3">
+				<div className="row flex-nowrap justify-content-between align-items-center">
+					<div className="col-4 pt-1">
+						{/* <a className="text-muted" href="#">Subscribe</a> */}
+					</div>
+					<div className="col-4 text-center">
+						<Link className="blog-header-logo text-dark" to="/">{this.props.data.data.title}</Link>
+					</div>
+					<div className="col-4 d-flex justify-content-end align-items-center">
+						{/* <a className="text-muted" href="#">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+						</a> */}
+						{/* <a className="btn btn-sm btn-outline-secondary" href="#">Sign up</a> */}
+					</div>
+				</div>
+			</header>
+			<div className="nav-scroller py-1 mb-2">
+				<nav className="nav d-flex justify-content-between">
+					{ items }
+				</nav>
 			</div>
-		</nav>
-		{ this.props.children }
-      </div>
-    );
+			<div id="main">
+			{ this.props.children }
+			</div>
+			<footer class="blog-footer">
+					<p>{ this.props.data.data.footer }</p>
+				<p>
+					<a href="#">Back to top</a>
+				</p>
+			</footer>
+		</div>
+	);
   }
 }
 

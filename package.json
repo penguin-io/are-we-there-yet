@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "concurrently": "^5.0.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "concurrently \"cd frontend && npm start\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd frontend && npm start\" "
   },
   "repository": {
     "type": "git",
@@ -15,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/penguin-io/are-we-there-yet/issues"
   },
-  "homepage": "https://github.com/penguin-io/are-we-there-yet#readme",
-  "dependencies": {
-    "concurrently": "^5.0.0"
-  }
+  "homepage": "https://github.com/penguin-io/are-we-there-yet#readme"
 }

@@ -22,23 +22,21 @@ class Backend extends React.Component {
   }
   render() {
     return (
-      <div class="card" id="editor">
-      <div class="card-header" onClick={this.toggleNav}>
-      </div>
-      <div class="card-body" style={{display : this.state.showBackend ? 'unset' : 'none'}}>
-        <h5 class="card-title">Navbar</h5>
-        <div class="card-text">
-          Background Color :
-          <select onChange={ (e) => this.handleChange(e) }>
-            <option value="white">White</option>
-            <option value="yellow">Yellow</option>
-            <option value="red">Red</option>
-            <option value="green">Green</option>
-          </select>
+      <div className="card" id="editor">
+        <div className="card-header" onClick={this.toggleNav}></div>
+        <div className="card-body" style={{ display: this.state.showBackend ? "unset" : "none" }}>
+          <h5 className="card-title">Navbar</h5>
+          <div className="card-text">
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">Title</span>
+            </div>
+            <input type="text" className="form-control" placeholder="My Website" aria-label="My Website" aria-describedby="basic-addon1" />
+          </div>
+          </div>
+          <a href="#" className="btn btn-primary">Go somewhere</a>
         </div>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
-    </div>
     );
   }
 }
