@@ -4,9 +4,9 @@ app.database = {
     host : 'localhost',
     user : 'root',
     password : '',
-    database : 'hypestore'
+    database : 'builder'
 }
 
 app.port = 8000
 
-app.secret_key = 'ebisnis'
+app.secret_key = 'hey bro'
