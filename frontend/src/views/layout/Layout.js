@@ -13,14 +13,14 @@ class Layout extends React.Component {
 		<Link key={key} class="p-2 text-muted" to={'/' + item.slug}>{item.name}</Link>
 	)
     return (
-		<div>
+		<div className={this.props.darkmode ? "text-white bg-dark" : ""}>
 			<header className="blog-header py-3">
 				<div className="row flex-nowrap justify-content-between align-items-center">
 					<div className="col-4 pt-1">
 						{/* <a className="text-muted" href="#">Subscribe</a> */}
 					</div>
 					<div className="col-4 text-center">
-						<Link className="blog-header-logo text-dark" to="/">{this.props.data.data.title}</Link>
+						<Link className={this.props.darkmode ? "blog-header-logo text-dark" : "blog-header-logo text-white"} to="/">{this.props.data.data.title}</Link>
 					</div>
 					<div className="col-4 d-flex justify-content-end align-items-center">
 						{/* <a className="text-muted" href="#">
@@ -30,6 +30,15 @@ class Layout extends React.Component {
 					</div>
 				</div>
 			</header>
+			<div id="mySidebar" class="sidebar">
+				<a href="#" class="closebtn">&times;</a>
+				<a href="#">Edit Mode</a>
+				<br />
+				<a href="#">Home</a>
+				<a href="#">Blog</a>
+				<a href="#">About</a>
+				<a href="#">Contact</a>
+			</div>
 			<div className="nav-scroller py-1 mb-2">
 				<nav className="nav d-flex justify-content-between">
 					{ items }

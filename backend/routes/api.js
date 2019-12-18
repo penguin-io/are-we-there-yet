@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 var userController = require('../controllers/UserController')
-var itemController = require('../controllers/ItemController')
+var dataController = require('../controllers/DataController')
 var orderController = require('../controllers/OrderController')
 
 router.get('/users',userController.getUsers)
@@ -12,11 +12,7 @@ router.post('/sign_up',userController.addUser)
 router.put('/users/:id',userController.editUser)
 router.delete('/users/:id',userController.deleteUser)
 
-router.get('/items',itemController.getItems)
-router.get('/items/:id',itemController.getItem)
-router.post('/items',itemController.addItem)
-router.put('/items/:id',itemController.editItem)
-router.delete('/items/:id',itemController.deleteItem)
+router.get('/data',dataController.getData)
 
 router.get('/orders',orderController.getOrders)
 router.post('/orders',orderController.addOrder)

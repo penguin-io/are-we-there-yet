@@ -1,12 +1,7 @@
 var app = exports
 
-app.database = {
-    host : 'localhost',
-    user : 'root',
-    password : '',
-    database : 'builder'
-}
+require('dotenv').config()
 
-app.port = 8000
+app.port = process.env.APP_PORT
 
-app.secret_key = 'hey bro'
+app.secret_key = process.env.SECRET_KEY
